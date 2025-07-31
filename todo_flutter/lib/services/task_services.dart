@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/task.dart';
+import '../config/api_config.dart';
 
 class TaskService {
-  static const String baseUrl =
-      'http://localhost:5000/api'; // Use your IP in mobile
+  static String get baseUrl => ApiConfig.baseUrl;
 
   static Future<List<Task>> fetchTasks(String user) async {
     final response = await http.get(Uri.parse('$baseUrl/tasks?user=$user'));
